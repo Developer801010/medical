@@ -430,15 +430,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <a href="{{ asset('storage/uploads/5uXDBSqwETaPpnaSRb5mNnwSiMkcIGRruqA2PXzv.docx') }}" target="_blank">test</a>
-                                            {{-- @foreach ($data->files as $val)
+                                            @foreach ($data->files as $val)
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ asset('storage/') }}"></a>
+                                                        <a href="{{ asset('uploads/'.$val->files) }}">{{$val->files}}</a>
                                                     </td>
-                                                    <td><a href="#" class="text-danger"><i data-feather='trash-2'></i></a></td>
+                                                    <td>
+                                                        <a href="#" class="text-danger btn_trash_file trash_{{$val->id}}"><i data-feather='trash-2'></i></a>
+                                                    </td>
                                                 </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         </tbody>
                                     @endif 
                                     </table>
@@ -496,5 +497,9 @@
         phone: true,
         phoneRegionCode: 'US'
     });
+
+    $('.btn_trash_file').click(function (){
+        console.log('clicked');
+    })
     </script>
 @endsection

@@ -4,17 +4,17 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
-class PermissionTableSeeder extends Seeder
+class RoleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        //Permissions
-        $permissions = [
+         //Permissions
+         $roles = [
             'role-list',
             'role-create',
             'role-edit',
@@ -33,8 +33,11 @@ class PermissionTableSeeder extends Seeder
             'calendar-delete'               
         ];
 
-        foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);                        
+        foreach ($roles as $role) {
+            Role::create([
+                'name' => $role,
+                'guard_name' => 'web'
+            ]);                        
         }
     }
 }

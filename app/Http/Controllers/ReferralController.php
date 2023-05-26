@@ -251,12 +251,10 @@ class ReferralController extends Controller
                     $patientTransactionUploadedFilesObj = new PatientTransactionUploadedFiles();
 
                     //set the file name 
-                    $fileName = time().'_'.$file->getClientOriginalName();
+                    $fileName = $file->getClientOriginalName();
 
                     //move the file into the desired folder
-                    // $file->move(storage_path('uploads'), $fileName);
-                    $file->store('uploads');
-
+                    $file->move(public_path('uploads'), $fileName);
 
                     // Save the upload result into the database
                     $patientTransactionUploadedFilesObj->transaction_id = $patientTransactionLatestID;
