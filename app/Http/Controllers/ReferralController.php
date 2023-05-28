@@ -371,6 +371,9 @@ class ReferralController extends Controller
      * 
      */
 
-     
+     public function deleteReferralFile(Request $request)
+     {
+        return response()->json(['msg' => 'success']);
+     }
 }
 

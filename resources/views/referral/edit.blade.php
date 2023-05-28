@@ -436,7 +436,7 @@
                                                         <a href="{{ asset('uploads/'.$val->files) }}">{{$val->files}}</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#" class="text-danger btn_trash_file trash_{{$val->id}}"><i data-feather='trash-2'></i></a>
+                                                        <a href="#" class="text-danger btn_trash_file" id="trash_{{$val->id}}"><i data-feather='trash-2'></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -499,7 +499,18 @@
     });
 
     $('.btn_trash_file').click(function (){
-        console.log('clicked');
+        let trash_id = $(this).attr('id').split('_')[1];
+        $.ajax({
+            type: "DELETE",
+            url: "/delete-referral-file/"+trash_id,            
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },            
+            success: function (response) {
+                
+                console.log(response.msg);
+            }
+        });
     })
     </script>
 @endsection

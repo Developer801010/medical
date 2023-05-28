@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/get-clinic-data', [ClinicController::class, 'getClinicData'])->middleware('role:admin');
 
     Route::resource('referral', ReferralController::class)->middleware('role:office manager');
+    Route::delete('/delete-referral-file/{id}', [ReferralController::class, 'deleteReferralFile'])->middleware('role:office manager');
 
     Route::resource('calendar', CalendarController::class)->middleware('role:office manager');
 });
