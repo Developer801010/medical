@@ -15,22 +15,11 @@ class RoleTableSeeder extends Seeder
     {
          //Permissions
          $roles = [
-            'role-list',
-            'role-create',
-            'role-edit',
-            'role-delete',           
-            'referral-list',
-            'referral-create',
-            'referral-edit',
-            'referral-delete',           
-            'clinic-list',
-            'clinic-create',
-            'clinic-edit',
-            'clinic-delete',           
-            'calendar-list',
-            'calendar-create',
-            'calendar-edit',
-            'calendar-delete'               
+            'office manager',
+            'patient',
+            'doctor',
+            'attorney',           
+            'fuding company'            
         ];
 
         foreach ($roles as $role) {
